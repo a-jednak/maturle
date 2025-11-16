@@ -66,3 +66,20 @@ input::placeholder {
     font-size: 2cap;
 }
 
+#all-sets {    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.set {
+    display: flex;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.set.show {
+    opacity: 1;
+    transform: translateY(0);
+}

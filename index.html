@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <head>
     <title>Maturle</title>
-    <script type="module" src="api_script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Maturle</h1>
-    <div id = "container">
-        <form id="guessForm">
-            <input type="text" id="guess" name="guess" placeholder="Your guess">
-        </form>
-        <!-- Aktualnie tagi są krzywo i w żaden sposób nie są połączone z blokami, might work on that -->
-        <div id="tags">
-            <div class="tag">Nazwa</div>
-            <div class="tag">Autor</div>
-            <div class="tag">Epoka</div>
-            <div class="tag">Gatunek</div>
-            <div class="tag">Rodzaj</div>
-        </div>
-        <div id="details">
+    <form id="guessForm">
+        <input type="text" id="guess" name="guess" placeholder="Your guess">
+    </form>
+    <!-- Aktualnie tagi są krzywo i w żaden sposób nie są połączone z blokami, might work on that -->
+    <div id="tags">
+        <div class="tag">Tytuł</div>
+        <div class="tag">Autor</div>
+        <div class="tag">Epoka</div>
+        <div class="tag">Gatunek</div>
+        <div class="tag">Rodzaj</div>
+    </div>
+    <div id = "all-sets">
+        <div class="set">
             <div class="block" id="name">Nazwa</div>
             <div class="block" id="author">Autor</div>
             <div class="block" id="epoch">Epoka</div>
@@ -26,4 +25,7 @@
             <div class="block" id="kind">Rodzaj</div>
         </div>
     </div>
+
+    <script type="module" src="api_script.js"></script>
+    <script type="module" src="game.js"></script>
 </body>
