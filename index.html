@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Maturle</title>
-    <script src="api_script.js" defer></script>
+    <script type="module" src="api_script.js" defer></script>
 </head>
 <body>
     <h1>Maturle</h1>
@@ -9,5 +9,12 @@
         <label for="guess">Your guess:</label><br>
         <input type="text" id="guess" name="guess">
     </form>
-    <p id="details"></p>
+    <!-- <p id="details"></p> -->
+    <div id="details">
+        <div id="name">Nazwa</div>
+        <div id="author">Autor</div>
+        <div id="epoch">Epoka</div>
+        <div id="genre">Gatunek</div>
+        <div id="kind">Rodzaj</div>
+    </div>
 </body>

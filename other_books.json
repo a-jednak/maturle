@@ -1,0 +1,232 @@
+[
+    {
+        "title": "Zbrodnia i kara",
+        "epochs": [
+            {
+                "name": "Pozytywizm"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Powieść"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Fiodor Dostojewski"
+            }
+        ]
+    },
+    {
+        "title": "Ferdydurke",
+        "epochs": [
+            {
+                "name": "Dwudziestolecie międzywojenne"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Powieść"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Witold Gombrowicz"
+            }
+        ]
+    },
+    {
+        "title": "Inny świat",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Powieść biograficzna"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Gustaw Herling-Grudziński"
+            }
+        ]
+    },
+    {
+        "title": "Zdążyć przed Panem Bogiem",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Reportaż"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Hanna Krall"
+            }
+        ]
+    },
+    {
+        "title": "Dżuma",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Powieść"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Albert Camus"
+            }
+        ]
+    },
+    {
+        "title": "Tango",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Dramat awangardowy"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Dramat"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Sławomir Mrożek"
+            }
+        ]
+    },
+    {
+        "title": "Górą \"Edek\"",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Opowiadanie"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Marek Nowakowski"
+            }
+        ]
+    },
+    {
+        "title": "Miejsce",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Opowiadanie"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Andrzej Stasiuk"
+            }
+        ]
+    },
+    {
+        "title": "Profesor Andrews w Warszawie",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Opowiadanie realistyczne"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Olga Tokarczuk"
+            }
+        ]
+    },
+    {
+        "title": "Podróże z Herodotem",
+        "epochs": [
+            {
+                "name": "Współczesność"
+            }
+        ],
+        "genres": [
+            {
+                "name": "Autobiografia"
+            }
+        ],
+        "kinds": [
+            {
+                "name": "Epika"
+            }
+        ],
+        "authors": [
+            {
+                "name": "Ryszard Kapuściński"
+            }
+        ]
+    }
+]

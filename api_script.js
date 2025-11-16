@@ -1,44 +1,30 @@
-// async function getBooks(){
-//     const url =  "https://wolnelektury.pl/api/books";
-//     try {
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             throw new Error(`Response status: ${response.status}`);
-//         }
+const inne_lektury = await fetch("./other_books.json").then(r => r.json());
+// console.log(books)
 
-//         const result = await response.json();
-//         console.log(result);
-//     } catch(error) {
-//         console.log(error);
-//     }
-// }
-var lektury = ["Biblia", "Mitologia", "Makbet", "Skąpiec", "Homer, Iliada", "Antygona", "Rozmowa mistrza Polikarpa ze śmiercią", "Lament Świętokrzyski", "Pieśń o Rolandzie",
+var lektury = ["Makbet", "Skąpiec", "Homer, Iliada", "Antygona", "Rozmowa mistrza Polikarpa ze śmiercią", "Lament Świętokrzyski", "Pieśń o Rolandzie",
     "Dziady, Dziady poema, Dziady czesc III", "Lalka", "Potop", "Zbrodnia i Kara", "Wesele", "Chłopi", "Przedwiośnie", "Ferdydurke", "Borowski, Proszę państwa do gazu", "Inny świat",
     "Zdążyć przed Panem Bogiem", "Dżuma", "Orwell, Rok 1984", "Tango", "Górą \"Edek\"", "Miejsce", "Profesor Andrews w Warszawie", "Podróże z Herodotem", "Balladyna", "Pan Tadeusz",
-    "Zemsta", "Dziady, Dziady Poema, Dziady czesc II", "Romeo i Julia", "Borowski, Ludzie, którzy szli", "Gloria Victis, Tom Opowiadań", "Kordian", "Boska Komedia", "Hamlet"
+    "Zemsta", "Dziady, Dziady Poema, Dziady czesc II", "Romeo i Julia", "Borowski, Ludzie, którzy szli", "Gloria Victis, Tom Opowiadań", "Kordian", "Boska Komedia", "Hamlet",
+    "Król Edyp", "ballady-i-romanse-switezianka", "Reduta Ordona", "Quo Vadis", "Konrad Wallenrod"
 ]
 
-// Czego nie ma na wolnelektury:
-// Biblia, Mitologia, Zbrodnia i Kara, Ferdydurke, Inny świat, Zdążyć przed Panem Bogiem, Dżuma, Tango Mrożka, Górą edek, Miejsce, Profesor Andrews w Warszawie, Podróże z Herodotem
-// mogę ręcznie je dodać w formie mapy(tytuł, details)
-// zamiast mitologii i biblii moze daj po prostu jakies ksiegi/fragmenty
 
 async function getBookByName(name){
-    let refactored_name = refactorName(name)
-    const url =  "https://wolnelektury.pl/api/books/".concat(refactored_name);
+    let refactoredName = refactorName(name)
+    const url =  "https://wolnelektury.pl/api/books/".concat(refactoredName);
+    var result;
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
-
-        const result = response.json();
-        // console.log(result);
-        return result;
+        result = response.json();
     } catch(error) {
-        console.log(error);
-        return null;
+        result = inne_lektury.find(b => 
+            b.title.toLowerCase() === name.toLowerCase()
+        );
     }
+    return result;
 }
 
 function refactorName(name){
@@ -73,9 +59,9 @@ function refactorName(name){
 async function getBookDetails(name){
     const book = await getBookByName(name);
     if(book != null){
-        return [book.title, book.epochs[0].name, book.genres[0].name, book.kinds[0].name, book.authors[0].name]
+        return [book.title, book.authors[0].name, book.epochs[0].name, book.genres[0].name, book.kinds[0].name]
     }
-    return [name, name, name, name, name];
+    return ["X", "X", "X", "X", "X"];
 }
 
 // async function submitGuess() {
@@ -99,7 +85,11 @@ document.getElementById("guessForm").addEventListener("submit", async (event) =>
   }
 
   let details = await getBookDetails(x);
-  document.getElementById("details").textContent = details;
+  document.getElementById("name").textContent = details[0];
+  document.getElementById("author").textContent = details[1];
+  document.getElementById("epoch").textContent = details[2];
+  document.getElementById("genre").textContent = details[3];
+  document.getElementById("kind").textContent = details[4];
 });
 
 
