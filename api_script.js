@@ -1,5 +1,4 @@
 const inne_lektury = await fetch("./other_books.json").then(r => r.json());
-// console.log(books)
 
 var lektury = ["Makbet", "Skąpiec", "Homer, Iliada", "Antygona", "Rozmowa mistrza Polikarpa ze śmiercią", "Lament Świętokrzyski", "Pieśń o Rolandzie",
     "Dziady, Dziady poema, Dziady czesc III", "Lalka", "Potop", "Zbrodnia i Kara", "Wesele", "Chłopi", "Przedwiośnie", "Ferdydurke", "Borowski, Proszę państwa do gazu", "Inny świat",
@@ -64,16 +63,6 @@ async function getBookDetails(name){
     return ["X", "X", "X", "X", "X"];
 }
 
-// async function submitGuess() {
-//   let x = document.getElementById("guess").value;
-//   if (x == "") {
-//     alert("Name must be filled out");
-//     return false;
-//   }
-//   let details = await getBookDetails(x);
-//   document.getElementById("details").textContent = details;
-// }
-
 document.getElementById("guessForm").addEventListener("submit", async (event) => {
   event.preventDefault();  // <--- stops refresh
 
@@ -90,19 +79,40 @@ document.getElementById("guessForm").addEventListener("submit", async (event) =>
   document.getElementById("epoch").textContent = details[2];
   document.getElementById("genre").textContent = details[3];
   document.getElementById("kind").textContent = details[4];
+
+    fitText("name");
+    fitText("author");
+    fitText("epoch");
+    fitText("genre");
+    fitText("kind");
 });
 
 
 
-// getBooks();
+function fitText(outputSelector){
+    const maxFontSize = 50;
+    let outputDiv = document.getElementById(outputSelector);
+    let width = outputDiv.clientWidth;
+    let contentWidth = outputDiv.scrollWidth;
+    let fontSize = parseInt(window.getComputedStyle(outputDiv, null).getPropertyValue('font-size'),10);
+    // if content's width is bigger then elements width - overflow
+    if (contentWidth > width || outputDiv.scrollHeight > outputDiv.clientHeight){
+        while ((contentWidth > width || outputDiv.scrollHeight > outputDiv.clientHeight) && fontSize > 5) {
+        fontSize--;
+        outputDiv.style.fontSize = fontSize + 'px';
 
-// console.log(refactorName("Twój Stary Pijany Żaczek"))
-// var pan_tadeusz = await getBookByName("dziady-dziady-poema-dziady-czesc-iii");
-// console.log(pan_tadeusz)
+        // aktualizacja wymiarów
+        width = outputDiv.clientWidth;
+        contentWidth = outputDiv.scrollWidth;
+    } 
+    }
+}
 
-// for(var title of lektury){
-//     var dets = await getBookDetails(title);
-//     console.log(title);
-//     console.log(dets);
-// }
+// window.addEventListener("DOMContentLoaded", () => {
+//     fitText("name");
+//     fitText("author");
+//     fitText("epoch");
+//     fitText("genre");
+//     fitText("kind");
+// });
 

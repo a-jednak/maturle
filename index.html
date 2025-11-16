@@ -2,19 +2,29 @@
 <head>
     <title>Maturle</title>
     <script type="module" src="api_script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Maturle</h1>
-    <form id="guessForm">
-        <label for="guess">Your guess:</label><br>
-        <input type="text" id="guess" name="guess">
-    </form>
-    <!-- <p id="details"></p> -->
-    <div id="details">
-        <div id="name">Nazwa</div>
-        <div id="author">Autor</div>
-        <div id="epoch">Epoka</div>
-        <div id="genre">Gatunek</div>
-        <div id="kind">Rodzaj</div>
+    <div id = "container">
+        <form id="guessForm">
+            <label for="guess">Your guess:</label><br>
+            <input type="text" id="guess" name="guess">
+        </form>
+        <!-- Aktualnie tagi są krzywo i w żaden sposób nie są połączone z blokami, might work on that -->
+        <div id="tags">
+            <div class="tag">Nazwa</div>
+            <div class="tag">Autor</div>
+            <div class="tag">Epoka</div>
+            <div class="tag">Gatunek</div>
+            <div class="tag">Rodzaj</div>
+        </div>
+        <div id="details">
+            <div class="block" id="name">Nazwa</div>
+            <div class="block" id="author">Autor</div>
+            <div class="block" id="epoch">Epoka</div>
+            <div class="block" id="genre">Gatunek</div>
+            <div class="block" id="kind">Rodzaj</div>
+        </div>
     </div>
 </body>
