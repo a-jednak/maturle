@@ -1,5 +1,4 @@
 const inne_lektury = await fetch("./other_books.json").then(r => r.json());
-
 var lektury = ["Makbet", "Skąpiec", "Homer, Iliada", "Antygona", "Rozmowa mistrza Polikarpa ze śmiercią", "Lament Świętokrzyski", "Pieśń o Rolandzie",
     "Dziady, Dziady poema, Dziady czesc III", "Lalka", "Potop", "Zbrodnia i Kara", "Wesele", "Chłopi", "Przedwiośnie", "Ferdydurke", "Borowski, Proszę państwa do gazu", "Inny świat",
     "Zdążyć przed Panem Bogiem", "Dżuma", "Orwell, Rok 1984", "Tango", "Górą \"Edek\"", "Miejsce", "Profesor Andrews w Warszawie", "Podróże z Herodotem", "Balladyna", "Pan Tadeusz",
@@ -107,12 +106,4 @@ function fitText(outputSelector){
     } 
     }
 }
-
-// window.addEventListener("DOMContentLoaded", () => {
-//     fitText("name");
-//     fitText("author");
-//     fitText("epoch");
-//     fitText("genre");
-//     fitText("kind");
-// });
 
