@@ -57,31 +57,6 @@ async function getBookDetails(name){
     return ["X", "X", "X", "X", "X"];
 }
 
-document.getElementById("guessForm").addEventListener("submit", async (event) => {
-  event.preventDefault();  // <--- stops refresh
-
-  let x = document.getElementById("guess").value;
-
-  if (x === "") {
-    alert("Name must be filled out");
-    return;
-  }
-
-//   let details = await getBookDetails(x);
-//   document.getElementById("name").textContent = details[0];
-//   document.getElementById("author").textContent = details[1];
-//   document.getElementById("epoch").textContent = details[2];
-//   document.getElementById("genre").textContent = details[3];
-//   document.getElementById("kind").textContent = details[4];
-
-//     fitText("name");
-//     fitText("author");
-//     fitText("epoch");
-//     fitText("genre");
-//     fitText("kind");
-});
-
-// might move this to a seperate js specific for styles
 
 
 

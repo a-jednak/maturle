@@ -9,6 +9,7 @@ const lektury = ["Makbet", "Skąpiec", "Homer, Iliada", "Antygona", "Rozmowa mis
 var inneLektury;
 var solution;
 var solutionDetails;
+var points = 0;
 
 (async () => {
     console.log("STARTING UP")
@@ -46,6 +47,7 @@ input.addEventListener("keydown", e => {
         e.preventDefault();
         createNewSet(input.value);
         input.value = "";
+        points = 0;
     }
 });
 
@@ -60,8 +62,9 @@ async function createNewSet(title) {
         const block = document.createElement("div");
         block.classList.add("block");
         block.textContent = details[i];
-        if(details[i] == solutionDetails[i]){
+        if(details[i].toLowerCase() == solutionDetails[i].toLowerCase()){
             block.style.background = "rgba(99, 128, 99, 1)";
+            points++;
         }
 
         set.appendChild(block);
@@ -76,6 +79,12 @@ async function createNewSet(title) {
     setTimeout(() => {
         set.classList.add("show");
     }, 10);
+
+    if(points==5){
+        setTimeout(() => {
+            dialog.showModal(); 
+        }, 800);
+    }
 }
 
 function fitText(outputSelector){
@@ -97,4 +106,23 @@ function fitText(outputSelector){
     }
 }
 
+async function playAgain() {
+    solution = await getRandomBook();
+    solutionDetails = await getBookDetails(solution);
+    container.innerHTML = '';
+    points = 0;
+    console.log(solution, solutionDetails);
+}
+
+const dialog = document.querySelector("dialog");
+const againButton = document.querySelector("dialog button");
+
+againButton.addEventListener("click", async () => {
+    playAgain();
+    dialog.close();
+})
+
+document.getElementById("again").addEventListener("click", async () => {
+    playAgain();
+})
 
