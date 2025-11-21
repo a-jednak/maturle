@@ -19,6 +19,7 @@ const input = document.getElementById("guess");
     solution = await getRandomBook();
     solutionDetails = await getBookDetails(solution);
     console.log(solution, solutionDetails);
+    loadBooksIntoDropdown();
     input.disabled = false; // enable input after loading data
 })();
 
@@ -79,5 +80,37 @@ againButton.addEventListener("click", async () => {
 document.getElementById("again").addEventListener("click", async () => {
     playAgain();
 })
+
+async function loadBooksIntoDropdown() {
+    const dropdown = document.getElementById("myDropdown");
+    dropdown.innerHTML = ""; // Clear previous content
+
+    try {
+        // 1. Load local other_books.json
+        const localRes = await fetch("other_books.json");
+        const localBooks = await localRes.json();
+
+        // 2. Load books from WolneLektury API
+        const apiRes = await fetch("https://wolnelektury.pl/api/books/");
+        const apiBooks = await apiRes.json();
+
+        // 3. Combine all books
+        const allBooks = [...localBooks, ...apiBooks];
+
+        // 4. Insert into dropdown as <p>title, author</p>
+        allBooks.forEach(book => {
+            const p = document.createElement("p");
+            p.textContent = `${book.title}, ${book.author}`;
+            p.onmousedown = async () => {
+                await submitInput(book.href ?? book.title); // .onmousedown wywołuje się przed blur
+                input.value = "";
+            } 
+            dropdown.appendChild(p);
+        });
+
+    } catch (error) {
+        console.error("Error loading books:", error);
+    }
+}
 
 

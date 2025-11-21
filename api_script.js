@@ -3,8 +3,13 @@ export default getBookDetails;
 const inneLektury = await fetch("./other_books.json").then(r => r.json());
 
 async function getBookByName(name){
-    let refactoredName = refactorName(name)
-    const url =  "https://wolnelektury.pl/api/books/".concat(refactoredName);
+    var url;
+    if(name.includes("https")){
+        url = name;
+    } else {
+        let refactoredName = refactorName(name)
+        url =  "https://wolnelektury.pl/api/books/".concat(refactoredName);
+    }
     var result;
     try {
         const response = await fetch(url);

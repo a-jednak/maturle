@@ -1,7 +1,7 @@
 export {createNewSet, clearContainer};
 
+
 const container = document.getElementById("all-sets");
-loadBooksIntoDropdown();
 
 const inputElement = document.getElementById("guess");
 if (inputElement) {
@@ -85,33 +85,5 @@ function filterFunction() {
         } else {
             p[i].style.display = "none";
         }
-    }
-}
-
-async function loadBooksIntoDropdown() {
-    const dropdown = document.getElementById("myDropdown");
-    dropdown.innerHTML = ""; // Clear previous content
-
-    try {
-        // 1. Load local other_books.json
-        const localRes = await fetch("other_books.json");
-        const localBooks = await localRes.json();
-
-        // 2. Load books from WolneLektury API
-        const apiRes = await fetch("https://wolnelektury.pl/api/books/");
-        const apiBooks = await apiRes.json();
-
-        // 3. Combine all books
-        const allBooks = [...localBooks, ...apiBooks];
-
-        // 4. Insert into dropdown as <p>title, author</p>
-        allBooks.forEach(book => {
-            const p = document.createElement("p");
-            p.textContent = `${book.title}, ${book.author}`;
-            dropdown.appendChild(p);
-        });
-
-    } catch (error) {
-        console.error("Error loading books:", error);
     }
 }
