@@ -23,6 +23,15 @@ function createNewSet(details, solutionDetails) {
         if(details[i].toLowerCase() == solutionDetails[i].toLowerCase()){
             block.style.background = "rgba(99, 128, 99, 1)";
             correct++;
+        } else {
+            const detailWords = details[i].toLowerCase().split(/\s+/);
+            const solutionWords = solutionDetails[i].toLowerCase().split(/\s+/);
+
+            const hasCommonWord = detailWords.some(word => solutionWords.includes(word)) || solutionWords.some(word => detailWords.includes(word));
+
+            if (hasCommonWord) {
+                block.style.background = "rgba(168, 166, 114, 1)";
+            }
         }
 
         set.appendChild(block);
